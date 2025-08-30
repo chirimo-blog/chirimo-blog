@@ -2,3 +2,4 @@ baseURL = 'https://chirimo-blog.netlify.app/'
 languageCode = 'ja'
 title = 'ちりもブログ'
 theme = 'PaperMod'
+# Netlifyの再デプロイを強制
