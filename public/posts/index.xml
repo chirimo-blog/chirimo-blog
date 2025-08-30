@@ -6,8 +6,57 @@
     <description>Recent content in Posts on ちりもブログ</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 Aug 2025 13:45:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 15:31:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初心者でもできた！レンタルサーバー代0円のブログを自作した全記録</title>
+      <link>http://localhost:1313/posts/make-blog/</link>
+      <pubDate>Sat, 30 Aug 2025 15:31:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/make-blog/</guid>
+      <description>&lt;h2 id=&#34;このブログ実はサーバー代が0円なんです&#34;&gt;このブログ、実はサーバー代が0円なんです&lt;/h2&gt;
+&lt;p&gt;はじめまして！ちりもです。&lt;/p&gt;
+&lt;p&gt;「自分のブログを持ちたいな」と思っても、まず頭に浮かぶのが月々のレンタルサーバー代や維持費のこと。どうにか無料で、しかも広告などに縛られずにブログを運営できないか…と調べた結果、&lt;strong&gt;Hugo&lt;/strong&gt;と&lt;strong&gt;Netlify&lt;/strong&gt;という技術に行き着きました。&lt;/p&gt;
+&lt;p&gt;この記事は、プログラミング経験がほとんどない私が、このブログを自力で立ち上げるまでに行った全手順を記録したものです。&lt;/p&gt;
+&lt;h2 id=&#34;step-1-使う道具を決める&#34;&gt;STEP 1: 使う道具を決める&lt;/h2&gt;
+&lt;p&gt;今回、私がブログを作るために選んだ「道具」は以下の3つです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Hugo&lt;/strong&gt;: 静的サイトジェネレーターと呼ばれるもので、ブログの元になるファイルからサイト全体を高速に作り出してくれる魔法のようなツールです。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: 作成したブログの元データを保管しておく、インターネット上の金庫のようなサービスです。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Netlify&lt;/strong&gt;: GitHubに保管したデータを元に、ブログを世界中に公開（ホスティング）してくれるサービスです。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;この3つを連携させることで、「GitHubにデータを保存したら、Netlifyが自動でブログを更新してくれる」という、夢のような仕組みが完成します。&lt;/p&gt;
+&lt;h2 id=&#34;step-2-自分のpcでブログの土台を作る&#34;&gt;STEP 2: 自分のPCでブログの土台を作る&lt;/h2&gt;
+&lt;p&gt;まずは、自分のパソコンだけで作業を進めました。
+Windowsに標準で入っている&lt;code&gt;winget&lt;/code&gt;というツールを使い、コマンドを2つ実行するだけで「Hugo」と「Git」（GitHubを使うためのツール）のインストールは完了。&lt;/p&gt;
+&lt;p&gt;次に、Hugoのコマンドを使ってブログの骨組みを作成し、好みのデザインテーマ（今回は「PaperMod」を選びました）を適用しました。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# このコマンド一つでブログのフォルダが作られます&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site chirimo-blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この時点では、まだブログは私のPCの中にしか存在しません。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 自分専用のプレビュー画面を表示するコマンド&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコマンドを打つと、記事がどう見えるかをブラウザで確認できます。&lt;/p&gt;
+&lt;h2 id=&#34;step-3-githubへデータを預ける&#34;&gt;STEP 3: GitHubへデータを預ける&lt;/h2&gt;
+&lt;p&gt;PCが壊れてもデータが消えないように、作成したブログのデータをGitHubにアップロードしました。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 変更を記録し、GitHubに送信するコマンド&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;コミットメッセージ&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコマンド操作は少し専門的ですが、一度覚えてしまえば単純な作業です。&lt;/p&gt;
+&lt;h2 id=&#34;step-4-netlifyと連携していよいよ公開&#34;&gt;STEP 4: Netlifyと連携して、いよいよ公開！&lt;/h2&gt;
+&lt;p&gt;最後のステップです。NetlifyのアカウントをGitHub連携で作成し、作成したリポジトリを指定するだけ。&lt;/p&gt;
+&lt;p&gt;すると、Netlifyが自動で働き始め、数分後にはブログのURLが発行されました。
+自分の作ったブログがインターネット上に表示された瞬間は、本当に感動しました。&lt;/p&gt;
+&lt;h2 id=&#34;つまずいた点netlifyでのビルドエラー&#34;&gt;つまずいた点：Netlifyでのビルドエラー&lt;/h2&gt;
+&lt;p&gt;すべてが順調に見えましたが、最初のデプロイで&lt;code&gt;hugo: command not found&lt;/code&gt;というエラーが発生しました。
+原因は、私のPCで使っているHugoのバージョンと、Netlifyが標準で使おうとしたHugoのバージョンが違ったことでした。&lt;/p&gt;
+&lt;p&gt;解決策は、netlify.tomlという設定ファイルを追加し、バージョンを直接指示することでした。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-Ini,&#34; data-lang=&#34;Ini,&#34;&gt;# NetlifyにHugoのバージョンを教える設定
+[build.environment]
+HUGO_VERSION = &amp;#34;0.149.0&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;このファイルをGitHubにアップロードすると、無事にデプロイが成功しました。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ挑戦してよかった&#34;&gt;まとめ：挑戦してよかった！&lt;/h2&gt;
+&lt;p&gt;コマンド操作には戸惑いましたが、無事に高機能なブログを無料で立ち上げることができました。&lt;/p&gt;
+&lt;p&gt;この記事が、誰かの背中を押すことができたら嬉しいです。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>最初の投稿</title>
       <link>http://localhost:1313/posts/my-first-post/</link>

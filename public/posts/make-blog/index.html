@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>初心者でもできた！レンタルサーバー代0円のブログを自作した全記録 | ちりもブログ</title>
+<meta name="keywords" content="">
+<meta name="description" content="このブログ、実はサーバー代が0円なんです
+はじめまして！ちりもです。
+「自分のブログを持ちたいな」と思っても、まず頭に浮かぶのが月々のレンタルサーバー代や維持費のこと。どうにか無料で、しかも広告などに縛られずにブログを運営できないか…と調べた結果、HugoとNetlifyという技術に行き着きました。
+この記事は、プログラミング経験がほとんどない私が、このブログを自力で立ち上げるまでに行った全手順を記録したものです。
+STEP 1: 使う道具を決める
+今回、私がブログを作るために選んだ「道具」は以下の3つです。
+
+Hugo: 静的サイトジェネレーターと呼ばれるもので、ブログの元になるファイルからサイト全体を高速に作り出してくれる魔法のようなツールです。
+GitHub: 作成したブログの元データを保管しておく、インターネット上の金庫のようなサービスです。
+Netlify: GitHubに保管したデータを元に、ブログを世界中に公開（ホスティング）してくれるサービスです。
+
+この3つを連携させることで、「GitHubにデータを保存したら、Netlifyが自動でブログを更新してくれる」という、夢のような仕組みが完成します。
+STEP 2: 自分のPCでブログの土台を作る
+まずは、自分のパソコンだけで作業を進めました。
+Windowsに標準で入っているwingetというツールを使い、コマンドを2つ実行するだけで「Hugo」と「Git」（GitHubを使うためのツール）のインストールは完了。
+次に、Hugoのコマンドを使ってブログの骨組みを作成し、好みのデザインテーマ（今回は「PaperMod」を選びました）を適用しました。
+# このコマンド一つでブログのフォルダが作られます
+hugo new site chirimo-blog
+この時点では、まだブログは私のPCの中にしか存在しません。
+# 自分専用のプレビュー画面を表示するコマンド
+hugo server
+このコマンドを打つと、記事がどう見えるかをブラウザで確認できます。
+STEP 3: GitHubへデータを預ける
+PCが壊れてもデータが消えないように、作成したブログのデータをGitHubにアップロードしました。
+# 変更を記録し、GitHubに送信するコマンド
+git commit -m &#34;コミットメッセージ&#34;
+git push
+このコマンド操作は少し専門的ですが、一度覚えてしまえば単純な作業です。
+STEP 4: Netlifyと連携して、いよいよ公開！
+最後のステップです。NetlifyのアカウントをGitHub連携で作成し、作成したリポジトリを指定するだけ。
+すると、Netlifyが自動で働き始め、数分後にはブログのURLが発行されました。
+自分の作ったブログがインターネット上に表示された瞬間は、本当に感動しました。
+つまずいた点：Netlifyでのビルドエラー
+すべてが順調に見えましたが、最初のデプロイでhugo: command not foundというエラーが発生しました。
+原因は、私のPCで使っているHugoのバージョンと、Netlifyが標準で使おうとしたHugoのバージョンが違ったことでした。
+解決策は、netlify.tomlという設定ファイルを追加し、バージョンを直接指示することでした。
+# NetlifyにHugoのバージョンを教える設定
+[build.environment]
+HUGO_VERSION = &#34;0.149.0&#34;
+このファイルをGitHubにアップロードすると、無事にデプロイが成功しました。
+まとめ：挑戦してよかった！
+コマンド操作には戸惑いましたが、無事に高機能なブログを無料で立ち上げることができました。
+この記事が、誰かの背中を押すことができたら嬉しいです。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/make-blog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/make-blog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="ちりもブログ (Alt + H)">ちりもブログ</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      初心者でもできた！レンタルサーバー代0円のブログを自作した全記録
+    </h1>
+    <div class="post-meta"><span title='2025-08-30 15:31:00 +0900 JST'>August 30, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="このブログ実はサーバー代が0円なんです">このブログ、実はサーバー代が0円なんです<a hidden class="anchor" aria-hidden="true" href="#このブログ実はサーバー代が0円なんです">#</a></h2>
+<p>はじめまして！ちりもです。</p>
+<p>「自分のブログを持ちたいな」と思っても、まず頭に浮かぶのが月々のレンタルサーバー代や維持費のこと。どうにか無料で、しかも広告などに縛られずにブログを運営できないか…と調べた結果、<strong>Hugo</strong>と<strong>Netlify</strong>という技術に行き着きました。</p>
+<p>この記事は、プログラミング経験がほとんどない私が、このブログを自力で立ち上げるまでに行った全手順を記録したものです。</p>
+<h2 id="step-1-使う道具を決める">STEP 1: 使う道具を決める<a hidden class="anchor" aria-hidden="true" href="#step-1-使う道具を決める">#</a></h2>
+<p>今回、私がブログを作るために選んだ「道具」は以下の3つです。</p>
+<ol>
+<li><strong>Hugo</strong>: 静的サイトジェネレーターと呼ばれるもので、ブログの元になるファイルからサイト全体を高速に作り出してくれる魔法のようなツールです。</li>
+<li><strong>GitHub</strong>: 作成したブログの元データを保管しておく、インターネット上の金庫のようなサービスです。</li>
+<li><strong>Netlify</strong>: GitHubに保管したデータを元に、ブログを世界中に公開（ホスティング）してくれるサービスです。</li>
+</ol>
+<p>この3つを連携させることで、「GitHubにデータを保存したら、Netlifyが自動でブログを更新してくれる」という、夢のような仕組みが完成します。</p>
+<h2 id="step-2-自分のpcでブログの土台を作る">STEP 2: 自分のPCでブログの土台を作る<a hidden class="anchor" aria-hidden="true" href="#step-2-自分のpcでブログの土台を作る">#</a></h2>
+<p>まずは、自分のパソコンだけで作業を進めました。
+Windowsに標準で入っている<code>winget</code>というツールを使い、コマンドを2つ実行するだけで「Hugo」と「Git」（GitHubを使うためのツール）のインストールは完了。</p>
+<p>次に、Hugoのコマンドを使ってブログの骨組みを作成し、好みのデザインテーマ（今回は「PaperMod」を選びました）を適用しました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># このコマンド一つでブログのフォルダが作られます</span>
+</span></span><span style="display:flex;"><span>hugo new site chirimo-blog
+</span></span></code></pre></div><p>この時点では、まだブログは私のPCの中にしか存在しません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 自分専用のプレビュー画面を表示するコマンド</span>
+</span></span><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><p>このコマンドを打つと、記事がどう見えるかをブラウザで確認できます。</p>
+<h2 id="step-3-githubへデータを預ける">STEP 3: GitHubへデータを預ける<a hidden class="anchor" aria-hidden="true" href="#step-3-githubへデータを預ける">#</a></h2>
+<p>PCが壊れてもデータが消えないように、作成したブログのデータをGitHubにアップロードしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 変更を記録し、GitHubに送信するコマンド</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;コミットメッセージ&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><p>このコマンド操作は少し専門的ですが、一度覚えてしまえば単純な作業です。</p>
+<h2 id="step-4-netlifyと連携していよいよ公開">STEP 4: Netlifyと連携して、いよいよ公開！<a hidden class="anchor" aria-hidden="true" href="#step-4-netlifyと連携していよいよ公開">#</a></h2>
+<p>最後のステップです。NetlifyのアカウントをGitHub連携で作成し、作成したリポジトリを指定するだけ。</p>
+<p>すると、Netlifyが自動で働き始め、数分後にはブログのURLが発行されました。
+自分の作ったブログがインターネット上に表示された瞬間は、本当に感動しました。</p>
+<h2 id="つまずいた点netlifyでのビルドエラー">つまずいた点：Netlifyでのビルドエラー<a hidden class="anchor" aria-hidden="true" href="#つまずいた点netlifyでのビルドエラー">#</a></h2>
+<p>すべてが順調に見えましたが、最初のデプロイで<code>hugo: command not found</code>というエラーが発生しました。
+原因は、私のPCで使っているHugoのバージョンと、Netlifyが標準で使おうとしたHugoのバージョンが違ったことでした。</p>
+<p>解決策は、netlify.tomlという設定ファイルを追加し、バージョンを直接指示することでした。</p>
+<pre tabindex="0"><code class="language-Ini," data-lang="Ini,"># NetlifyにHugoのバージョンを教える設定
+[build.environment]
+HUGO_VERSION = &#34;0.149.0&#34;
+</code></pre><p>このファイルをGitHubにアップロードすると、無事にデプロイが成功しました。</p>
+<h2 id="まとめ挑戦してよかった">まとめ：挑戦してよかった！<a hidden class="anchor" aria-hidden="true" href="#まとめ挑戦してよかった">#</a></h2>
+<p>コマンド操作には戸惑いましたが、無事に高機能なブログを無料で立ち上げることができました。</p>
+<p>この記事が、誰かの背中を押すことができたら嬉しいです。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">ちりもブログ</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
