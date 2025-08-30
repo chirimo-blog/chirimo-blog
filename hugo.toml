@@ -2,8 +2,3 @@ baseURL = 'https://chirimo-blog.netlify.app/'
 languageCode = 'ja'
 title = 'ちりもブログ'
 theme = 'PaperMod'
-[params.assets]
-  disableFingerprinting = true
-
-[[params.customJS]]
-  html = '<meta name="google-site-verification" content="ykZ3MVL8naugMJ5QIP9HmkFZ_1QFGG9_k60jRswGwSE" />'
