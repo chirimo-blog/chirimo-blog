@@ -1,4 +1,4 @@
 baseURL = 'https://chirimo-blog.netlify.app/'
 languageCode = 'ja'
-title = 'ちりもブログ' # あなたのブログタイトルに変更してください
+title = 'ちりもブログ'
 theme = 'PaperMod'
