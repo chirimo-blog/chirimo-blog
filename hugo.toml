@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'ja'
+title = 'ちりもブログ' # あなたのブログタイトルに変更してください
+theme = 'PaperMod'
