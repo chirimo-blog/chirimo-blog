@@ -3,9 +3,11 @@
 
 <head>
     {{- partial "head.html" . -}}
-	<meta name="google-site-verification" content="ykZ3MVL8naugMJ5QIP9HmkFZ_1QFGG9_k60jRswGwSE" />
-</head>
 
+    <!-- Google Search Consoleの確認タグ -->
+    <meta name="google-site-verification" content="ykZ3MVL8naugMJ5QIP9HmkFZ_1QFGG9_k60jRswGwSE" />
+
+</head>
 <body class="
     {{- if (or (ne .Kind `page` ) (ne .Layout `archives`) (ne .Layout `search`)) -}}
     {{- print "list" -}}
