@@ -4,4 +4,4 @@ title = 'ちりもブログ'
 theme = 'PaperMod'
 # --- カスタムCSSを読み込むための設定 ---
 [params]
-  customCSS = ["css/custom.css"]
+  customCSS = ["assets/css/custom.css"]
