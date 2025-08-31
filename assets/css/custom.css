@@ -5,30 +5,10 @@ h2 {
 
 /* 見出し3の上のスペースを広げる */
 h3 {
-  margin-top: 300px;
+  margin-top: 30px;
 }
 
-/* --- ちりもブログ カスタムデザイン --- */
-
-/* 全体のフォントと背景色 */
+/* --- テスト用：サイト全体の背景色を薄いベージュに変える --- */
 body {
-    background-color: #f8fafc !important;
-    font-family: 'Noto Sans JP', sans-serif !important;
+    background-color: #f5f5dc; /* この色コードを好きなものに変えてみてください */
 }
-
-/* 基本の文字色 */
-body, .post-content {
-    color: #2d3748 !important;
-}
-
-/* リンクやアクセントの色 */
-a, .logo a, .post-title, .menu a:hover {
-    color: #1a73e8 !important;
-}
-
-/* ヘッダーの背景色 */
-#header {
-    background-color: #f8fafc !important;
-}
-
-/* --- ここまで --- */
