@@ -2,6 +2,7 @@ baseURL = 'https://chirimo-blog.netlify.app/'
 languageCode = 'ja'
 title = 'ちりもブログ'
 theme = 'PaperMod'
-# --- カスタムCSSを読み込むための設定 ---
+
+# --- PaperModテーマの公式なカスタムCSS読み込み設定 ---
 [params]
-  customCSS = ["assets/css/custom.css"]
+  customCSS = ["css/custom.css"]

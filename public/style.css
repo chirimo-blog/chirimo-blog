@@ -1,0 +1,4 @@
+/* カスタムCSSのテスト */
+body {
+    border: 10px solid gold !important;
+}
