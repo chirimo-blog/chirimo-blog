@@ -6,3 +6,8 @@ theme = 'PaperMod'
 # --- PaperModテーマの公式なカスタムCSS読み込み設定 ---
 [params]
   customCSS = ["css/custom.css"]
+
+[[menu.footer]]
+  name = "プライバシーポリシー"
+  url = "/privacy"
+  weight = 1
